@@ -1,0 +1,394 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {    
+    display: flex;   
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+    background: rgb(205, 235, 255);
+}
+.gamefield {
+    position: relative;
+    display: flex;     
+    flex-wrap: wrap; 
+    justify-content: space-around;
+    align-items: center;   
+    width:45vw;
+    max-width: 500px;
+    height:45vw;
+    max-height: 500px;
+    border: 1px solid rgb(9, 37, 54);
+    background: rgb(26, 100, 146);
+    box-shadow: 0 0 50px rgba(26, 100, 146, 0.75);
+    border-radius: 5px;
+}
+@media (max-width: 1110px) {
+    .cl_pop {
+        top: -3.7vw;
+        right: -3.7vw;        
+    }
+    .cl_pop:active {
+        top: -3.9vw;
+        right: -3.9vw;
+    }
+    body {
+        margin-top: 2.1vw;
+    }
+    .cell {
+        font-size: 6vw;
+    }
+    #popup {
+        font-size: 1.8vw;
+        top: 21.5vw;
+    }
+    .newgame {
+        font-size: 2.62vw;        
+        border-radius: 0.87vw;
+    }
+    .save {
+        font-size: 2.62vw;        
+        border-radius: 0.87vw;
+    }
+    .load {
+        font-size: 2.62vw;        
+        border-radius: 0.87vw;
+    }
+    .sound {              
+        border-radius: 0.87vw;
+    }
+    .params {
+        margin-bottom: 1.31vw;
+    }
+    .bttns {
+        margin-top: 1.31vw;
+    }
+    .bttns2 {
+        margin-top: 1.31vw;
+    }
+    .list_cont {
+        margin-top: 1.31vw;
+        font-size: 2.2vw;
+    }
+    .counter {
+        font-size: 3.06vw;
+    }
+    .timer {
+        font-size: 3.06vw;
+    }
+    .material-icons {
+        font-size: 3.06vw;
+    }
+    .save_res {
+        font-size: 1.2vw;
+    }
+}
+@media (min-width: 1111px) {
+    .cl_pop {
+        top: -40px;
+        right: -40px;
+    }
+    .cl_pop:active {
+        top: -42px;
+        right: -42px;
+    }
+    body {
+        margin-top: 25px;        
+    }
+    .cell {
+        font-size: 70px;
+    }
+    #popup {
+        font-size: 20px;
+        top: 244px;
+    }
+    .newgame {
+        font-size: 30px;        
+        border-radius: 10px;
+    }
+    .save {
+        font-size: 30px;        
+        border-radius: 10px;
+    }
+    .load {
+        font-size: 30px;        
+        border-radius: 10px;
+    }
+    .sound {                       
+        border-radius: 10px;
+    }
+    .params {
+        margin-bottom: 15px;
+    }
+    .bttns {
+        margin-top: 15px;
+    }
+    .bttns2 {
+        margin-top: 15px;
+    }
+    .list_cont {
+        margin-top: 15px;
+        font-size: 25px;
+    }
+    .list_cont_table {        
+        font-size: 20px;
+    }
+    .counter {
+        font-size: 35px;
+    }
+    .timer {
+        font-size: 35px;
+    }
+    .material-icons {
+        font-size: 35px;
+    }
+    .save_res {
+        font-size: 13px;
+    }
+}
+.cell {
+    display: flex;   
+    justify-content: center;
+    align-items: center;
+    width: 24.4%;
+    height: 24.4%;
+    color: rgb(223, 242, 255);        
+    border: 1px solid rgb(205, 235, 255);
+    box-sizing: border-box;
+    border-radius: 5px;
+    background: rgb(9, 37, 54);
+    transition: all 0.3s;      
+}
+.empty {
+    display: flex;   
+    justify-content: center;
+    align-items: center;
+    width: 24.4%;
+    height: 24.4%;
+    border: 0px;
+    background: rgb(26, 100, 146); 
+    transition: all 0.3s;     
+}
+.cell:hover {
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    background: rgb(7, 28, 41);
+    transition: all 0.3s; 
+}
+.newgame {
+    width: 21.375vw;
+    max-width: 237.5px;
+    height: 5vw;
+    max-height: 60px;
+    background: rgb(26, 100, 146); 
+    box-shadow: 0 0 50px rgba(26, 100, 146, 0.75);
+    color: rgb(255, 255, 255); 
+    cursor: pointer;
+    border: none;    
+    outline: none;
+}
+.newgame:hover {
+    background: rgb(9, 37, 54);
+    transition: all 0.5s; 
+}
+.params {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    width: 45vw;
+    max-width: 500px;
+    height: 3.33vw;
+    max-height: 40px;
+    color: black;    
+}
+.bttns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 45vw;
+    max-width: 500px;
+    height: 5vw;
+    max-height: 60px;
+    color: black;    
+}
+.timer {
+    width: 50%;
+    height: 100%;
+}
+.counter {
+    width: 50%;
+    height: 100%;
+    text-align: right;        
+}
+.sound {
+    width: 11.25vw;
+    max-width: 125px;
+    height: 5vw;
+    max-height: 60px;
+    background: rgb(26, 100, 146); 
+    box-shadow: 0 0 50px rgba(26, 100, 146, 0.75);
+    color: rgb(255, 255, 255); 
+    cursor: pointer;
+    border: none;    
+    outline: none;
+}
+.sound:hover {
+    background: rgb(9, 37, 54);
+    transition: all 0.5s; 
+}
+.bttns2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 45vw;
+    max-width: 500px;
+    height: 5vw;
+    max-height: 60px;
+    color: black;    
+}
+.save {
+    width: 21.375vw;
+    max-width: 237.5px;
+    height: 5vw;
+    max-height: 60px;
+    background: rgb(26, 100, 146); 
+    box-shadow: 0 0 50px rgba(26, 100, 146, 0.75);
+    color: rgb(255, 255, 255); 
+    cursor: pointer;
+    border: none;    
+    outline: none;
+}
+.save:hover {
+    background: rgb(9, 37, 54);
+    transition: all 0.5s; 
+}
+.load {
+    width: 21.375vw;
+    max-width: 237.5px;
+    height: 5vw;
+    max-height: 60px;
+    background: rgb(26, 100, 146); 
+    box-shadow: 0 0 50px rgba(26, 100, 146, 0.75);
+    color: rgb(255, 255, 255); 
+    cursor: pointer;
+    border: none;    
+    outline: none;
+}
+.load:hover {
+    background: rgb(9, 37, 54);
+    transition: all 0.5s; 
+}
+#popup-cover {
+    position: fixed;
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    top: 0;
+    left: 0;
+    z-index: 9000;
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+    opacity: 0.65;
+}
+#popup {    
+    position: absolute;    
+    z-index: 9100;
+    display: flex;     
+    flex-wrap: wrap; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   
+    text-align: center;
+    width:36vw;
+    max-width: 400px;
+    height:22.5vw;
+    max-height: 250px;    
+    border: 3px solid white;
+    background: rgb(104, 197, 255);
+    border-radius: 10px;
+    font-weight: 700;
+}
+.cl_pop {    
+    position: absolute;    
+    z-index: 9100;
+    display: flex;     
+    flex-wrap: wrap; 
+    justify-content: center;
+    align-items: center;   
+    width: 4vw;
+    max-width: 40px;
+    height: 4vw;
+    max-height: 40px;  
+    border: 3px solid rgb(104, 197, 255);
+    background: white;
+    border-radius: 20px;
+    outline: none;
+}
+.cl_pop:hover {
+    border: 3px solid white;
+    background:rgb(104, 197, 255);
+    border-radius: 20px;
+    cursor: pointer;
+}
+.cl_pop:active {    
+    width: 4.4vw;
+    max-width: 44px;
+    height: 4.4vw;
+    max-height: 44px; 
+}
+.name {
+    text-align: center;
+    outline: none;
+    width: 15vw;
+    max-width: 150px;
+    height: 2.5vw;
+    max-height: 25px;
+    margin-bottom: 0.6vw;
+    margin-top: 0.3vw;
+    border: none;
+    border-radius: 0.5vw;
+}
+.save_res {
+    width: 15vw;
+    max-width: 150px;
+    height: 2.5vw;
+    max-height: 25px;    
+    background: rgb(26, 100, 146); 
+    box-shadow: 0 0 50px rgba(26, 100, 146, 0.75);
+    color: rgb(255, 255, 255); 
+    cursor: pointer;
+    border: none;    
+    outline: none;
+    border-radius: 0.5vw;
+}
+.save_res:hover {
+    background: rgb(9, 37, 54);
+    transition: all 0.5s;
+}
+.list_cont {
+    display: block;    
+    width: 45vw;
+    max-width: 500px;    
+    color: black;         
+}
+.list_cont div {
+    display: block;  
+    width: 45vw;
+    max-width: 500px; 
+    text-align: center;
+}
+/* .list_cont_table, .list_cont_table td{
+    border: 1px solid black; 
+} */
+.list_cont_table {
+    width: 100%;
+    text-align: center;
+    background: rgba(26, 100, 146, 0.25);  
+}
+#t0 {
+    color: red;
+    font-weight: 700;
+}
