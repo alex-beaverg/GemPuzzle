@@ -18,9 +18,9 @@ let saveGame;
 let sec, min;
 let interval;
 let firstclick = true;
-document.getElementById('timer').innerHTML = 'Время: 00:00';
+document.getElementById('timer').innerHTML = 'Time: 00:00';
 
-counter.innerHTML = 'Ходы: ' + click_counter; 
+counter.innerHTML = 'Moves: ' + click_counter; 
 const field = document.createElement('div');
 field.className = 'gamefield';
 body.append(field);
@@ -35,7 +35,7 @@ body.append(brick_down);
 const button = document.createElement('button');
 button.setAttribute('type', 'button');
 button.classList.add('newgame');
-button.innerHTML = 'Новая игра';
+button.innerHTML = 'New game';
 brick_down.append(button);
 const sound_btn = document.createElement('button');
 sound_btn.setAttribute('type', 'button');
@@ -61,7 +61,7 @@ function game() {
             if (cell.className !== 'empty') {       
                 document.querySelector('.audio').play();
                 click_counter++;            
-                counter.innerHTML = 'Ходы: ' + click_counter; 
+                counter.innerHTML = 'Moves: ' + click_counter; 
                 if (firstclick === true) init();
                 firstclick = false;
             }
@@ -78,7 +78,7 @@ function game() {
                 document.getElementById('c11').style.pointerEvents = 'none';
                 document.getElementById('c14').style.pointerEvents = 'none';
                 document.querySelector('.audio2').play();
-                showPrompt(`Ваш результат:<br><br>Время: ${document.getElementById('timer').innerHTML.slice(7)}<br>Количество ходов: ${click_counter}<br><br>Введите ваше имя:`);
+                showPrompt(`Your result:<br><br>Time: ${document.getElementById('timer').innerHTML.slice(7)}<br>Your moves: ${click_counter}<br><br>Enter your name:`);
             }
         });
     }
@@ -115,7 +115,7 @@ function showPrompt(text) {
     save_result.setAttribute('type', 'button');
     save_result.className = 'save_res';
     save_result.id = 'save_res';
-    save_result.innerHTML = 'Сохранить результат';
+    save_result.innerHTML = 'Save result';
     popup.append(save_result);
 
     save_result.addEventListener('click', () => {
@@ -171,12 +171,12 @@ button.addEventListener('click', () => {
 function new_game() {
     localStorage.removeItem('Auto Save');
     click_counter = 0;
-    counter.innerHTML = 'Ходы: ' + click_counter;
+    counter.innerHTML = 'Moves: ' + click_counter;
     firstclick = true;
     sec = 0;
     min = 0;
     clearInterval(interval);
-    document.getElementById('timer').innerHTML = 'Время: 00:00';
+    document.getElementById('timer').innerHTML = 'Time: 00:00';
     field.innerHTML = '';   
 }
 
@@ -206,12 +206,12 @@ body.append(brick_down2);
 const button2 = document.createElement('button');
 button2.setAttribute('type', 'button');
 button2.classList.add('save');
-button2.innerHTML = 'Сохранить';
+button2.innerHTML = 'Save';
 brick_down2.append(button2);
 const button3 = document.createElement('button');
 button3.setAttribute('type', 'button');
 button3.classList.add('load')
-button3.innerHTML = 'Загрузить';
+button3.innerHTML = 'Load';
 brick_down2.append(button3);
 
 button2.addEventListener('click', () => {
@@ -255,7 +255,7 @@ button3.addEventListener('click', () => {
 function load_game(data) {
     saveGame = JSON.parse(localStorage.getItem(data));    
         click_counter = saveGame.count;
-        counter.innerHTML = 'Ходы: ' + click_counter; 
+        counter.innerHTML = 'Moves: ' + click_counter; 
         document.getElementById('c0').innerHTML = saveGame.zero;
         document.getElementById('c1').innerHTML = saveGame.one;
         document.getElementById('c2').innerHTML = saveGame.two;
@@ -325,20 +325,20 @@ function tick() {
     sec++;
     save_game('Auto Save');
     if (min < 10) {
-        if (sec < 10) document.getElementById("timer").childNodes[0].nodeValue = `Время: 0${min}:0${sec}`;
-        else if (sec > 9 && sec < 60) document.getElementById("timer").childNodes[0].nodeValue = `Время: 0${min}:${sec}`;
+        if (sec < 10) document.getElementById("timer").childNodes[0].nodeValue = `Time: 0${min}:0${sec}`;
+        else if (sec > 9 && sec < 60) document.getElementById("timer").childNodes[0].nodeValue = `Time: 0${min}:${sec}`;
         else if (sec === 60) {
             min++;
             sec = 0;
-            document.getElementById("timer").childNodes[0].nodeValue = `Время: 0${min}:00`;
+            document.getElementById("timer").childNodes[0].nodeValue = `Time: 0${min}:00`;
         }
     } else if (min > 9 && min < 60) {
-        if (sec < 10) document.getElementById("timer").childNodes[0].nodeValue = `Время: ${min}:0${sec}`;
-        else if (sec > 9 && sec < 60) document.getElementById("timer").childNodes[0].nodeValue = `Время: ${min}:${sec}`;
+        if (sec < 10) document.getElementById("timer").childNodes[0].nodeValue = `Time: ${min}:0${sec}`;
+        else if (sec > 9 && sec < 60) document.getElementById("timer").childNodes[0].nodeValue = `Time: ${min}:${sec}`;
         else if (sec === 60) {
             min++;
             sec = 0;
-            document.getElementById("timer").childNodes[0].nodeValue = `Время: ${min}:00`;
+            document.getElementById("timer").childNodes[0].nodeValue = `Time: ${min}:00`;
         }
     } 
 }
@@ -643,7 +643,7 @@ list_container_table.className = 'list_cont_table';
 body.append(list_container);
 list_container.append(list_container_h1);
 list_container.append(list_container_table);
-document.querySelector('.list_cont_h1').innerHTML = '<b><i>Лучшие результаты:</i></b>';
+document.querySelector('.list_cont_h1').innerHTML = '<b><i>Best results:</i></b>';
 clear_results();
 print_results();
 
@@ -655,7 +655,7 @@ function print_results() {
         const item_head = document.createElement('tr');
         item_head.className = 'item_head';
         list_container_table.append(item_head);
-        document.querySelector('.item_head').innerHTML = `<th></th><th>Имя</th><th>Время</th><th>Ходы</th><th>Баллы</th>`;
+        document.querySelector('.item_head').innerHTML = `<th></th><th>Name</th><th>Time</th><th>Moves</th><th>Score</th>`;
         for (let i = 0; i < res.length; i++) {
             const item_list = document.createElement('tr');
             item_list.className = 'item_list';
